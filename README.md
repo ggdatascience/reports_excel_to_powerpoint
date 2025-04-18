@@ -4,7 +4,7 @@ Met dit script maak je met behulp van een configuratie in Excel en een template 
 
 ## Stappenplan voor voorbeeldrapportage
 
-> 1.  Klik rechtsboven op pagina op de groene knop met de tekst `<> Code`. Kies dan onderaan het drop down-menu de optie `Download ZIP`. Pak het ZIP bestand uit in de locatie van waaruit je wilt werken.
+> 1.  Klik rechtsboven op de pagina op de groene knop met de tekst `<> Code`. Kies dan onderaan in het drop down-menu de optie `Download ZIP`. Pak het ZIP bestand uit in de locatie van waaruit je wilt werken.
 > 2.  Open in de uitgepakte map het R Project file genaamd `reports.Rproj`. Open nu vanuit R of vanuit diezelfde map het hoofdscript `create_reports.R`
 > 3.  Volg de instructies die in het script `create_reports.R` staan om een voorbeeld rapportage op basis van nepdata uit te draaien. In deze voorbeeldrapportage zie je welke mogelijkheden het script heeft. De nepdata, het template en de configuratie die voor dit voorbeeld worden gebruikt vind je terug in de map `example`.
 

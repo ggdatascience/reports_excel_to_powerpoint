@@ -1,3 +1,3 @@
-# OKO_rapportage_en_figurenboek
+# PowerPoint rapportages vanuit Excel
 
-Landelijk format voor rapportage en figurenboek voor de extra OKO meting in 2025
+Met dit script maak je met behulp van een configuratie in Excel en een template in PowerPoint geautomatiseerd 

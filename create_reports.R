@@ -1,4 +1,5 @@
 # Script om vanuit een Excelconfiguratie en een Powerpoint template rapportages aan te maken
+# Versie 1.1
 
 # 0. Voorbereiding --------------------------------------------------------
 
@@ -43,6 +44,3 @@ excel_to_ppt(config_path = 'example/config.xlsx')
 # staan. Wil je de onderliggende tabel berekenen voor slideconfiguratie regel 2, dan vul je bij slide_row dus 1 in.
 # Als voor een regel geen cijfers berekend worden dan krijgen je alleen de report- en slideconfiguratie te zien voor die regel.
 create_table('example/config.xlsx', report_row = 1, slide_row = 1)
-
-
-

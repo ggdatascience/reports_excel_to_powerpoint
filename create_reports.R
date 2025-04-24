@@ -7,7 +7,7 @@
 rm(list = ls())
 
 # Deze libraries moeten eenmalig worden geinstalleerd met install.packages()
-# install.packages(c("extrafont", "haven", "labelled", "readxl", "tidyverse", "mschart", "officer", "flextable", "sjlabelled", "ggrepel")
+# install.packages(c("extrafont", "haven", "labelled", "readxl", "tidyverse", "mschart", "officer", "flextable", "sjlabelled", "ggrepel"))
 
 # Libraries laden
 library(extrafont) # Package om het lettertype Century Gothic te gebruiken

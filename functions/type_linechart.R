@@ -26,6 +26,12 @@ type_linechart <- function(data, report_params, slide_params) {
           plot.background = element_rect(fill = "white"),
           plot.margin = margin(t = 20, r = 20, b = 20, l = 20),
           legend.margin = margin(t = -10)) +
+    scale_x_continuous(breaks = seq(min(values$time_val), max(values$time_val), 
+                                    by = ifelse((max(values$time_val) - min(values$time_val)) %% 2 == 0, 2, 1))) +
+    # scale_x_continuous(limits = c(min(values$time_val), max(values$time_val)),
+    #                    breaks = seq(from = min(values$time_val),
+    #                                 to = max(values$time_val),
+    #                                 by = ifelse((max(values$time_val) - min(values$time_val)) %% 2 == 0, 2, 1))) +
     scale_y_continuous(limits = c(0, ylimit), 
                        breaks = seq(0, ylimit, by = ifelse(ylimit == 1, 0.2, 0.1)), 
                        labels = scales::percent_format(scale = 100, accuracy = 1), expand = c(0, 0)) +
@@ -45,3 +51,4 @@ type_linechart <- function(data, report_params, slide_params) {
   return(plot)
   
 }
+

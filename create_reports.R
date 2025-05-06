@@ -1,5 +1,5 @@
-# Script om vanuit een Excelconfiguratie en een Powerpoint template rapportages aan te maken
-# Versie 1.1
+# Script om met behulp van Excel en PowerPoint rapportages aan te maken
+# Versie 1.2
 
 # 0. Voorbereiding --------------------------------------------------------
 
@@ -7,23 +7,30 @@
 rm(list = ls())
 
 # Deze libraries moeten eenmalig worden geinstalleerd met install.packages()
-# install.packages(c("extrafont", "haven", "labelled", "readxl", "tidyverse", "mschart", "officer", "flextable", "sjlabelled", "ggrepel"))
+# install.packages(c("extrafont", "haven", "labelled", "readxl", 
+#                    "tidyverse", "mschart", "officer", "flextable", 
+#                    "sjlabelled", "ggrepel"))
 
 # Libraries laden
-library(extrafont) # Package om het lettertype Century Gothic te gebruiken
-library(haven) # Package Voor het laden van spss data bestanden
+library(extrafont) # Package om lettertypes te importeren
+library(ggrepel) # Package om labels in grafieken niet te laten overlappen
+library(haven) # Package voor het laden van spss data bestanden
 library(labelled) # Package om te werken met datalabels 
-library(readxl) # Package om te werken met exceldocumenten
-library(tidyverse) # Meer informatie over het tidyverse is te vinden op: https://www.tidyverse.org/
 library(mschart) # Package voor het aanmaken van office grafieken
-library(officer) # Package om Powerpoint (en andere MS Office) documenten aan te maken of te bewerken vanuit R
-library(flextable) # Package om tabellen te maken
+library(officer) # Package om MS Office documenten te maken/bewerken vanuit R
+library(readxl) # Package om te werken met exceldocumenten
 library(sjlabelled) # Package voor functie replace_labels()
-library(ggrepel) # Package met functionaliteit om labels in grafieken niet te laten overlappen
+library(tidyverse) # Meer info over tidyverse op: https://www.tidyverse.org/
+library(flextable) # Package om tabellen te maken
 
 # Installeren en laden van lettertype
-# In het R-bestand layout.R wordt als standaard lettertype calibri gebruikt. Wil je een ander lettertype dan moet je deze eenmalig importeren
-extrafont::font_import(paths = "C:/Windows/Fonts", pattern = "calibri", prompt = FALSE)
+# In het R-bestand layout.R wordt als standaard lettertype calibri gebruikt. 
+# Wil je een ander lettertype dan moet je deze eenmalig importeren.
+extrafont::font_import(paths = "C:/Windows/Fonts", 
+                       pattern = "calibri", 
+                       prompt = FALSE)
+
+# Lettertypes laden
 loadfonts(device = 'win')
 
 # Check welke lettertypes beschikbaar zijn in Rstudio
@@ -31,16 +38,33 @@ windowsFonts()
 
 # Functies laden die nodig zijn om rapportages te maken
 # Alle functies vind je terug in de map 'functions'
-list.files('functions', pattern = "\\.R$", full.names = TRUE) %>%
+list.files(path = 'functions', 
+           pattern = "\\.R$", 
+           full.names = TRUE) %>%
   walk(source)
 
 # Configuratie Excel omzetten naar rapportages in Powerpoint
 # Geef de padnaam van je Excel configuratie op
-excel_to_ppt(config_path = 'example/config.xlsx')
+# Let op! Heb je excel_to_ppt() al een keer uitgevoerd dan hoeft het script niet 
+# steeds opnieuw de configuratie en de data in te laden. Heb je aanpassingen 
+# gedaan aan de configuratie dan moet deze wel opnieuw ingeladen worden. Pas het 
+# reload_config argument dan aan naar TRUE. Wil je de data opnieuw inladen pas 
+# dan het reload_data argument aan naar TRUE. Als een of beide argumenten FALSE 
+# zijn dan worden ze niet opnieuw ingeladen (tenzij ze nog niet in de Global 
+# Environment van R aanwezig zijn, bijvoorbeeld als je het script na het 
+# opstarten voor het eerst uitvoert)
+excel_to_ppt(config_path = 'example/config.xlsx', 
+             reload_config = FALSE, 
+             reload_data = FALSE)
 
-# Loop je tegen errors aan? Met behulp van de table() functie kun je de onderliggende tabel voor elke regel berekenen
-# Geef de padnaam van je configuratie op en vul bij report_row het rapport waarvoor je cijfers wilt bereken en 
-# bij slide_row de regel in de slideconfiguratie. Let op dat Excel begint te tellen bij 2 omdat in regel 1 de kolomnamen
-# staan. Wil je de onderliggende tabel berekenen voor slideconfiguratie regel 2, dan vul je bij slide_row dus 1 in.
-# Als voor een regel geen cijfers berekend worden dan krijgen je alleen de report- en slideconfiguratie te zien voor die regel.
-create_table('example/config.xlsx', report_row = 1, slide_row = 1)
+# Loop je tegen errors aan? Met behulp van de create_table() functie kun je de 
+# onderliggende tabel voor elke regel berekenen. Geef de padnaam van je 
+# configuratie op bij config_path. Geef bij report_row het rijnummer in waarvoor 
+# je cijfers wilt berekenen en vul bij slide_row het rijnummer van de slide-
+# configuratie waarvoor je de onderliggende tabel wilt berekenen. In Excel staan
+# kolomnamen in rij 1 dus report_row en slide_row kunnen niet kleiner zijn dan 2.
+create_table(config_path = 'example/config.xlsx', 
+             report_row = 2, 
+             slide_row = 2, 
+             reload_config = FALSE, 
+             reload_data = FALSE)

@@ -7,14 +7,18 @@ set.seed(123)
 
 # Random data genereren
 data <- data.frame(
-  Onderzoeksjaar = labelled(sample(c(2016, 2020, 2024), size = 20000, replace = T, prob = c(0.40,0.3,0.3)),
+  Onderzoeksjaar = labelled(sample(c(2012, 2016, 2020, 2022, 2024), size = 20000, replace = T, prob = c(0.2,0.2,0.2,0.2,0.2)),
                             label = 'Onderzoeksjaar'),
   weegfactor2024 = labelled(runif(20000, min = 0.2, max = 5) %>% { . / sum(.) * 20000 },
                         label = 'Weegfactor2024'),
+  weegfactor2022 = labelled(runif(20000, min = 0.2, max = 5) %>% { . / sum(.) * 20000 },
+                            label = 'Weegfactor2022'),
   weegfactor2020 = labelled(runif(20000, min = 0.2, max = 5) %>% { . / sum(.) * 20000 },
                         label = 'Weegfactor2020'),
   weegfactor2016 = labelled(runif(20000, min = 0.2, max = 5) %>% { . / sum(.) * 20000 },
                             label = 'Weegfactor2016'),
+  weegfactor2012 = labelled(runif(20000, min = 0.2, max = 5) %>% { . / sum(.) * 20000 },
+                            label = 'Weegfactor2012'),
   GENDER = labelled(x = sample(c(1,2, NA), size = 20000, replace = T, prob = c(0.45,0.45,0.1)), 
                     labels = c('Jongen' = 1, 'Meisje' = 2),
                     label = 'Gender in twee categorieën'),
@@ -59,4 +63,4 @@ data <- data.frame(
 )
 
 # Data opslaan als SPSS databestand
-write_sav(data, 'example/data.sav')
+write_sav(data, 'data/data.sav')

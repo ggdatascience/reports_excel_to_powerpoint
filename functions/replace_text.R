@@ -4,7 +4,7 @@ replace_text <- function(string, table, relative_percentage = 0.15) {
   # Extract first subgroup
   subgroup1 <- string %>% 
     str_extract('(?<=\\[)[^\\]]+(?=\\])') %>% 
-    str_split_1('\\s*=\\s*') 
+    str_split_1('\\s*=\\s*')
   
   # Select value for first subgroup
   p1 <- table %>%
@@ -12,7 +12,8 @@ replace_text <- function(string, table, relative_percentage = 0.15) {
     select(p)
   
   # Remove first subgroup from string
-  string <- string %>% str_remove("\\[[^\\]]*?\\]")
+  #string <- string %>% str_remove("\\[[^\\]]*?\\]")
+  string <- string %>% str_replace("\\[[^\\]]*?\\]", paste0("(",(round(p1*100)), "%)"))
   
   # Extract second subgroup
   subgroup2 <- string %>% 
@@ -25,7 +26,8 @@ replace_text <- function(string, table, relative_percentage = 0.15) {
     select(p)
   
   # Remove second subgroup from string
-  string <- string %>% str_remove("\\[[^\\]]*?=[^\\]]*?\\]")
+  # string <- string %>% str_remove("\\[[^\\]]*?=[^\\]]*?\\]")
+  string <- string %>% str_replace("\\[[^\\]]*?=[^\\]]*?\\]", paste0("(",(round(p2*100)), "%)"))
   
   # Extract comparison text options
   comparison_text <- string %>% 

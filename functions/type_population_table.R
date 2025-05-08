@@ -35,6 +35,6 @@ type_population_table <- function(data, report_params, slide_params, h = 4, w = 
     set_table_properties(layout = "fixed") %>%
     width(width = w/7, unit = 'cm') %>%
     width(j=1, width = w/12) %>% # Breedte linkerkolom meer gemaakt zodat gemeentenaam beter uitkomt.
-    colformat_num(big.mark = "", digits = 0) # Toegevoeging; geen komma's of punten in cijfers
+    colformat_num(big.mark = "", digits = 0) # Toevoeging; geen komma's of punten in cijfers
   
 }

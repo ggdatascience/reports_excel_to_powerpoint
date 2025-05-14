@@ -18,9 +18,12 @@ Met dit script maak je met behulp van een configuratie in Excel en een template 
 
 ## Patch Notes
 
-### Toevoegingen
--  `type_respons_text.R()` heeft een Excel bestand nodig met hierin de respons data. In het voorbeeld staat dit in data/respons_data.xlsx met hierin de kolommen "gebied", "leeftijdsgroep", "aantal_uitnodigingen" en "aantal_response". De kolom leeftijdsgroep heeft de categorien Totaal, 18-64 jarigen en 65 plussers. De gebieden hierin komen overeen met report_name.
--  `type_population_table.R()` zal automatisch de CBS cijfers downloaden. Vul in de kolom CBS de gemeentecode (GMxxxx) in op het tabblad reports van de config. Het jaartal is ook nodig; invullen op de slideconfig bij time_val.  Dit gaat uit van de CBS tabel 03759ned met hierin de leeftijd per jaar, geslacht en burgerlijke status. Bij het inladen van de CBS data is direct gefilterd op totaal burgerlijke status, totaal geslacht, ingevoerde jaar en ingevoerde gemeente. Dit alles is in een flextable gezet zonder . of , in de cijfers. 
+### Versie 1.2.1
+
+-   Nieuwe functie
+    -   `type_respons_text()` toegevoegd dat gebruiktmaakt van een Excel bestand met hierin de respons data. In het voorbeeld staat dit in `data/respons_data.xlsx` met hierin de kolommen "gebied", "leeftijdsgroep", "aantal_uitnodigingen" en "aantal_response". De kolom leeftijdsgroep heeft de categorieën Totaal, 18-64 jarigen en 65 plussers. De gebieden hierin komen overeen met report_name.
+-   Aanpassingen
+    -   `type_population_table()` aangepast zodat automatisch de CBS cijfers worden gedownload. Vul in de kolom CBS de gemeentecode (GMxxxx) in op het tabblad reports van de config. Het jaartal is ook nodig; invullen op de slideconfig bij time_val. Dit gaat uit van de CBS tabel 03759ned met hierin de leeftijd per jaar, geslacht en burgerlijke status. Bij het inladen van de CBS data is direct gefilterd op totaal burgerlijke status, totaal geslacht, ingevoerde jaar en ingevoerde gemeente. Dit alles is in een flextable gezet zonder . of , in de cijfers.
 
 ### Versie 1.2
 

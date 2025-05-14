@@ -54,8 +54,8 @@ create_table <- function(config_path,
 
   table <- compute_values_set(report_data, report_params, slide_params)
 
-  return(list(Report_params = report_params,
-              Slide_params = slide_params,
-              Output = table))
+  return(list(report_params = report_params,
+              slide_params = slide_params,
+              values = table))
   
 }

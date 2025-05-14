@@ -1,10 +1,11 @@
 type_population_table <- function(data, report_params, slide_params, h = 4, w = 10) {
   # De kolom CBS dient toegevoegd te worden aan het Excel bestand met hierin de gemeentecode GMXXXX
   # Het jaartal is ingelezen met behulp van de slide instelling time_val.
-  df_cbs <- report_params$CBS
+  df_cbs <- report_params$cbs_dim_code
   jaar <- slide_params$time_val
   bevolking_1jan_gm <- cbs_get_data("03759ned", catalog = "CBS", Perioden=paste(jaar,"JJ00",sep=""), BurgerlijkeStaat = "T001019", 
                                     Geslacht = "T001038", RegioS = df_cbs)
+  
   bevolking_1jan_gm <- bevolking_1jan_gm %>%
     filter(Leeftijd > 11700) %>%
     filter(!Leeftijd == 10000) %>%

@@ -34,7 +34,7 @@ excel_to_ppt <- function(config_path,
               data = report_data)
   
   
-  cat("✅ Alle rapporten zijn succesvol aangemaakt en opgeslagen in je working directory\n\n")
+  cat("✅ Alle rapporten zijn aangemaakt en opgeslagen in je working directory\n\n")
   
   purrr::walk(report_log, function(x) {
     cat(x, "\n\n")

@@ -35,6 +35,6 @@ compute_values <- function(data, Nvar = 50, Ncel = 0, ...) {
     {if (is.na(params$grouping1_labels)) . else recode_labels(., grouping1, params$grouping1_labels)} %>%
     {if (is.na(params$grouping2_labels)) . else recode_labels(., grouping2, params$grouping2_labels)} %>%
     mutate(across(!n_cel & !n_cel_weighted & !n_total & !n_total_weighted & !n_min & !p & !time_val, to_character)) %>%
-    select(var, description, value_label, time_val, dim_name, weight_var, everything())
-  
+    select(var, description, value_label, time_val, dim_var, dim_name, weight_var, everything())
+
 }

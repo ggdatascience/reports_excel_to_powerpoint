@@ -34,29 +34,17 @@ graph_style <- function(graph,
 }
 
 # Functie aanmaken om grafiekkleuren te bepalen
-graph_color <- function(values, colors = color_palette, type = 'default') {
+graph_color <- function(values, colors = color_palette, variant) {
   
-  if(type == 'x-axis')
-    
-    colors[1]
-  
-  else if(type == 'labels')
-    
-    colors[1:length(unique(values$value_label))] %>% set_names(unique(values$value_label))
-  
-  else if(all(c('grouping1', 'grouping2') %in% names(values))) 
-  
-    colors[1:length(unique(values$grouping2))] %>% set_names(unique(values$grouping2))
-  
-  else if('grouping1' %in% names(values)) 
+  if(variant == "grouping1")
     
     colors[1:length(unique(values$grouping1))] %>% set_names(unique(values$grouping1))
   
-  else if('grouping2' %in% names(values)) 
+  else if(variant == 'grouping2')
     
     colors[1:length(unique(values$grouping2))] %>% set_names(unique(values$grouping2))
-
-  else if(any(!c('grouping1', 'grouping2') %in% names(values))) 
+  
+  else if(variant == 'dim_name') 
     
     colors[c(1,3,5,2,4,6)][1:length(unique(values$dim_name))] %>% set_names(unique(values$dim_name))
   

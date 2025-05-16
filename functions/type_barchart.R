@@ -1,36 +1,21 @@
 type_barchart <- function(data, report_params, slide_params) {
   
-  values <- compute_values_set(data, report_params, slide_params)
+  variant <- select_barchart_variant(slide_params)
   
-  x_axis_grouping <- (!is.na(slide_params$grouping1) && str_detect(slide_params$grouping1, ';'))
+  values <- compute_values_set(data, report_params, slide_params) %>%
+    adjust_labels_by_variant(variant) %>%
+    set_axis_factor_levels(vars = c(variant$x, variant$group), direction = slide_params$direction)
+    
   
   values %>%
-    {if (!is.na(slide_params$direction) && slide_params$direction == 'horizontal') {
-      arrange(., desc(row_number()))
-    } else .} %>%
-    ms_barchart(x = if (x_axis_grouping | all(c('grouping1', 'grouping2') %in% names(values))) {'grouping1'} else {'value_label'},
-                y = 'p',
-                group = if ('grouping2' %in% names(values)) { 
-                  'grouping2'
-                } else if (x_axis_grouping) {
-                  NULL
-                } else if ('grouping1' %in% names(values) && !'grouping2' %in% names(values)) {
-                  'grouping1'
-                } else if (any(!c('grouping1', 'grouping2') %in% names(values))) {
-                  'dim_name'
-                } else NULL) %>%
+    ms_barchart(x = variant$x,
+                y = "p",
+                group = variant$group) %>%
     graph_style(graphtitle = unique(values$description),
-                ylimit = ifelse(is.na(slide_params$ylimit), 1, as.numeric(slide_params$ylimit)),
-                legendposition = if ((!x_axis_grouping && any(c('grouping1', 'grouping2') %in% names(values))) | length(unique(values$dim_name)) > 1) 'b' else 'n') %>%
-    chart_data_fill(graph_color(values, type = ifelse(x_axis_grouping, 'x-axis', 'default'))) %>%
-    {if (!is.na(slide_params$direction) && slide_params$direction == 'horizontal') {
-      chart_settings(x = .,
-                     dir = "horizontal",
-                     gap_width = 30,
-                     overlap = -30)
-    } else {
-        .
-    }
-    }
+                ylimit = ifelse(test = is.na(slide_params$ylimit), 
+                                yes = 1, 
+                                no = as.numeric(slide_params$ylimit))) %>%
+    chart_data_fill(graph_color(values = values, variant = variant$group)) %>%
+    set_chart_direction(slide_params$direction)
   
 }

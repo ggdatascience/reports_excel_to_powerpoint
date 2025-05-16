@@ -6,7 +6,7 @@ Met dit script maak je met behulp van een configuratie in Excel en een template 
 
 > 1.  Klik rechtsboven op de pagina op de groene knop met de tekst `<> Code`. Kies dan onderaan in het drop down-menu de optie `Download ZIP`. Pak het ZIP bestand uit in de locatie van waaruit je wilt werken.
 > 2.  Open in de uitgepakte map het R Project file genaamd `reports.Rproj`. Open nu vanuit R of vanuit diezelfde map het hoofdscript `create_reports.R`
-> 3.  Volg de instructies die in het script `create_reports.R` staan om een voorbeeld rapportage op basis van nepdata uit te draaien. In deze voorbeeldrapportage zie je welke mogelijkheden het script heeft. De nepdata, het template en de configuratie die voor dit voorbeeld worden gebruikt vind je terug in de map `example`.
+> 3.  Volg de instructies die in het script `create_reports.R` staan om een voorbeeld rapportage op basis van nepdata uit te draaien. In deze voorbeeldrapportage zie je welke mogelijkheden het script heeft. Het template en de configuratie die voor dit voorbeeld worden gebruikt vind je terug in de map `example`. De nepdata staat inde map `data`.
 
 ## Wat te doen bij problemen?
 
@@ -17,6 +17,28 @@ Met dit script maak je met behulp van een configuratie in Excel en een template 
 > De handleiding volgt nog.
 
 ## Patch Notes
+
+### Versie 1.3
+
+-   Aanpassingen
+    -   `utils.R` toegevoegd waarin alle kleine helper functies staan
+    -   `recode_labels()` toegevoegd aan `utils.R`
+    -   `replace_text()` toegevoegd aan `utils.R`
+    -   `type_barchart()` herschreven zodat nieuwe varianten makkelijker kunnen worden toegevoegd
+    -   Alle 18 mogelijke varianten van `type_barchart()` toegevoegd aan de voorbeeld Rapportage
+    -   Voorbeeldconfiguratie, template en rapportage aangepast en pagina toegevoegd over grafiekinstellingen van `type_barchart()`
+    -   `type_topN()` herschreven (functionaliteit is niet veranderd)
+    -   `graph_color()` logica versimpeld en gebaseerd op variant die bepaald wordt door `select_barchart_variant()`
+-   Nieuwe functies toegevoegd aan `utils.R`
+    -   `select_barchart_variant()` selecteert de juiste grafiekvariant op basis van de structuur van de slide_params.
+    -   `set_chart_direction()` past de richting van de grafiek aan naar horizontaal als dat is opgegeven.
+    -   `adjust_labels_by_variant()` voegt indien nodig labelinformatie samen op basis van de grafiekvariant.
+    -   `set_axis_factor_levels()` zet factorlevels van opgegeven variabelen in de juiste (eventueel omgekeerde) volgorde afhankelijk van de grafiekrichting.
+-   Verbeteringen
+    -   `compute_values_set()` aangepast zodat factorlevels niet meer hier maar binnen content functies worden aangepast met behulp van `set_axis_factor_levels()`
+-   Verwijderde bestanden
+    -   `recode_labels.R` verwijdert omdat deze nu in `utils.R` staat
+    -   `replace_text.R` verwijdert omdat deze nu in `utils.R` staat
 
 ### Versie 1.2.1
 

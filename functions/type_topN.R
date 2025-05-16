@@ -6,23 +6,14 @@ type_topN <-  function(data, report_params, slide_params) {
   
   values %>%
     slice_max(p, n = top, na_rm = T) %>%
-    {if (!is.na(slide_params$direction) && slide_params$direction == 'horizontal') {
-      arrange(., desc(row_number()))
-    } else .} %>%
+    set_axis_factor_levels(vars = "value_label", direction = slide_params$direction) %>%
     ms_barchart(x = 'value_label',
                 y = 'p',
-                group = NULL) %>%
+                group = 'dim_name') %>%
     graph_style(graphtitle = str_replace(slide_params$description, "\\s*\\[\\d+\\]", ""),
                 ylimit = ifelse(is.na(slide_params$ylimit), 1, as.numeric(slide_params$ylimit)),
-                legendposition = 'n') %>%
-    chart_data_fill(graph_color(values, type = 'default')) %>%
-    {if (!is.na(slide_params$direction) && slide_params$direction == 'horizontal') {
-      chart_settings(x = .,
-                     dir = "horizontal",
-                     gap_width = 30,
-                     overlap = -30)
-    } else {
-      .
-    }
-    }
+                legendposition = 'b') %>%
+    chart_data_fill(graph_color(values, variant = 'dim_name')) %>%
+    set_chart_direction(slide_params$direction)
+  
 }

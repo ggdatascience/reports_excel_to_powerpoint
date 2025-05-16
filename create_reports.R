@@ -1,5 +1,5 @@
 # Script om met behulp van Excel en PowerPoint rapportages aan te maken
-# Versie 1.2.1
+# Versie 1.3
 
 # 0. Voorbereiding --------------------------------------------------------
 

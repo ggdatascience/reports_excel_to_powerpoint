@@ -26,7 +26,6 @@ compute_values_set <- function(data, report_params, slide_params) {
   purrr::pmap(.l = df_params,
               .f = compute_values,
               data = data %>% `[[`(report_params$data_path)) %>% # Dataset selecteren uit lijst van datasets
-    reduce(bind_rows) %>%
-    mutate(across(intersect(names(.), c('dim_name', 'value_label', 'grouping1', 'grouping2')), ~factor(.x, levels = unique(.x), ordered = T)))
+    reduce(bind_rows)
   
 }

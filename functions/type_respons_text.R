@@ -1,7 +1,7 @@
-type_respons_text <- function(data, report_params, slide_params, h = 4, w = 18) {
+type_respons_text <- function(data, report_params, slide_params) {
   
   # Let op: de report naam dient gelijk te zijn aan het gebied in het Excel bestand
-  respons_data_excel <- "data/respons_data.xlsx"
+  respons_data_excel <- "data/respons_fake.xlsx"
   
   aantal_resp <- read_excel(respons_data_excel) %>%
     filter(gebied == report_config$reports$report_name) %>%

@@ -7,12 +7,12 @@ type_linechart <- function(data, report_params, slide_params) {
   plot <- ggplot(values, aes(x = time_val, y = p, color = dim_name)) +
     geom_line() +
     geom_point() +
-    labs(title = "Ervaart een zeer goede gezondheid",
+    labs(title = slide_params$description,
          x = NULL,
          y = NULL,
          color = NULL) +
     theme(legend.position = "bottom",
-          text = element_text(family = "Calibri"),
+          text = element_text(family = global_font),
           plot.title = element_text(size = 9, face = "bold", hjust = 0.5, color = "black", margin = margin(b = 10)),
           plot.title.position = "plot",
           axis.title.x = element_text(size = 9, color = "black"),
@@ -28,14 +28,10 @@ type_linechart <- function(data, report_params, slide_params) {
           legend.margin = margin(t = -10)) +
     scale_x_continuous(breaks = seq(min(values$time_val), max(values$time_val), 
                                     by = ifelse((max(values$time_val) - min(values$time_val)) %% 2 == 0, 2, 1))) +
-    # scale_x_continuous(limits = c(min(values$time_val), max(values$time_val)),
-    #                    breaks = seq(from = min(values$time_val),
-    #                                 to = max(values$time_val),
-    #                                 by = ifelse((max(values$time_val) - min(values$time_val)) %% 2 == 0, 2, 1))) +
     scale_y_continuous(limits = c(0, ylimit), 
                        breaks = seq(0, ylimit, by = ifelse(ylimit == 1, 0.2, 0.1)), 
                        labels = scales::percent_format(scale = 100, accuracy = 1), expand = c(0, 0)) +
-    scale_color_manual(values = c('#005C96', '#E54800', '#FFE500', '#6FC7FF', '#FFB18E', '#FFF6A3'))
+    scale_color_manual(values = color_palette[c(1,3,5,2,4,6)])
   
   # Conditionally add labels
   if (length(unique(values$dim_name)) == 1) {
@@ -51,4 +47,3 @@ type_linechart <- function(data, report_params, slide_params) {
   return(plot)
   
 }
-

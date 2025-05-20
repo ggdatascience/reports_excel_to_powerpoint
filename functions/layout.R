@@ -1,10 +1,13 @@
 # Kleurpalet bepalen dat wordt gebruikt voor alle figuren die worden aangemaakt in R
 color_palette <- c('#005C96', '#6FC7FF', '#E54800', '#FFB18E', '#FFE500', '#FFF6A3')
 
+# Lettertype bepalen
+global_font <- "Calibri"
+
 # Grafiekinstellingen bepalen
 # Het standaardlettertype 'Calibri' kun je aanpassen achter het functieargument font.
 graph_style <- function(graph, 
-                        font = 'Calibri', 
+                        font = global_font, 
                         graphtitle = NULL, 
                         legendposition = 'b', 
                         datalabels = T, 

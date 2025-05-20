@@ -18,6 +18,14 @@ Met dit script maak je met behulp van een configuratie in Excel en een template 
 
 ## Patch Notes
 
+### Versie 1.3.1
+-   Aanpassingen
+    -   `layout.R` aangepast zodat hier een lettertype moet worden gedefinieerd met behulp van `global_font`
+    -   `type_linechart()` aangepast zodat de grafiektitel gebaseerd wordt op de description in de slideconfiguratie.
+    -   `type_linechart()` aangepast zodat de kleuren gebaseerd zijn op `color_palette` die wordt gedefinieerd in `layout.R`
+    -   `type_linechart()` aangepast zodat deze gebruikmaakt van het gedefinieerde lettertype `global_font` uit `layout.R`
+    -   Voorbeeldrapportages geupdate op basis van wijzigingen
+
 ### Versie 1.3
 
 -   Aanpassingen

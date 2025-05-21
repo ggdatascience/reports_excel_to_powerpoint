@@ -23,6 +23,8 @@ compute_values <- function(data, Nvar = 50, Ncel = 0, ...) {
                       no = if(params$weight_type == 'none') n_cel/n_total else n_cel_weighted/n_total_weighted) %>% as.numeric(),
            var = params$var,
            description = params$description,
+           grouping1_var = params$grouping1,
+           grouping2_var = params$grouping2,
            dim_var = params$dim_var,
            dim_name = params$dim_name,
            weight_var = params$weight_var) %>%
@@ -35,6 +37,6 @@ compute_values <- function(data, Nvar = 50, Ncel = 0, ...) {
     {if (is.na(params$grouping1_labels)) . else recode_labels(., grouping1, params$grouping1_labels)} %>%
     {if (is.na(params$grouping2_labels)) . else recode_labels(., grouping2, params$grouping2_labels)} %>%
     mutate(across(!n_cel & !n_cel_weighted & !n_total & !n_total_weighted & !n_min & !p & !time_val, to_character)) %>%
-    select(var, description, value_label, time_val, dim_var, dim_name, weight_var, everything())
+    select(var, description, value_label, time_val, dim_var, dim_name, grouping1_var, grouping2_var, weight_var, everything())
 
 }

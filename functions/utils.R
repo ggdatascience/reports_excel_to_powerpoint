@@ -22,18 +22,16 @@ select_barchart_variant <- function(slide_params) {
           "grouping1", "dim_name"),
     group = c("dim_name", "dim_name", "dim_name", "dim_name",
               "dim_name", "grouping1", "grouping2", "grouping2",
-              "dim_name", "dim_name", "grouping2", "dim_name", 
+              "dim_name", "dim_name", "grouping2", "grouping1_var", 
               "grouping1", "grouping2", "grouping2", "grouping1", 
-              "dim_name", "grouping2")
-  )
+              "dim_name", "grouping2"))
   
   barchart_variants %>%
     filter(
       var        == param_mode(slide_params$var),
       grouping1  == param_mode(slide_params$grouping1),
       grouping2  == param_mode(slide_params$grouping2),
-      dim_var    == param_mode(slide_params$dim_var)
-    )
+      dim_var    == param_mode(slide_params$dim_var))
 
 }
 
@@ -97,7 +95,12 @@ recode_labels <- function(data, label_var, label_string) {
 }
 
 # Functie om text te vervangen en twee groupen te vergelijken
-replace_text <- function(string, table, relative_percentage = 0.15) {
+replace_text <- function(string, 
+                         table, 
+                         mode, 
+                         relative_percentage = 0.15,
+                         absolute_percentage = 0.03,
+                         threshold = 0.1) {
   
   # Extract first subgroup
   subgroup1 <- string %>% 
@@ -133,6 +136,8 @@ replace_text <- function(string, table, relative_percentage = 0.15) {
     str_split(";\\s*") %>%
     unlist()
   
+  if (mode == "relative") {
+  
   # Compare subgroup percentages and determine the correct replacement text
   replacement_text <- if (abs(p1 - p2) / ((p1 + p2) / 2) < relative_percentage) { 
     comparison_text[1]
@@ -140,6 +145,28 @@ replace_text <- function(string, table, relative_percentage = 0.15) {
     comparison_text[2]
   } else {
     comparison_text[3]
+  }
+  
+  }
+  
+  else if (mode == "absolute") {
+    
+    abs_percentage <- if (p1 < threshold && p2 < threshold) {
+      absolute_percentage * (2/3)
+    } else {
+      absolute_percentage
+    }
+    
+    # Compare subgroup percentages and determine the correct replacement text
+    replacement_text <- if (abs(p1 - p2) < abs_percentage) {
+      comparison_text[1]
+    } else if (p1 > p2) {
+      comparison_text[2]
+    } else {
+      comparison_text[3]
+    }
+    
+    
   }
   
   # Replace the comparison text options with the correct replacement text

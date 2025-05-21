@@ -1,5 +1,5 @@
 # Script om met behulp van Excel en PowerPoint rapportages aan te maken
-# Versie 1.3
+# Versie 1.3.2
 
 # 0. Voorbereiding --------------------------------------------------------
 
@@ -55,7 +55,7 @@ list.files(path = 'functions',
 # Environment van R aanwezig zijn, bijvoorbeeld als je het script na het 
 # opstarten voor het eerst uitvoert)
 excel_to_ppt(config_path = 'example/config.xlsx', 
-             reload_config = T, 
+             reload_config = TRUE, 
              reload_data = FALSE)
 
 # Loop je tegen errors aan? Met behulp van de create_table() functie kun je de 
@@ -67,5 +67,5 @@ excel_to_ppt(config_path = 'example/config.xlsx',
 create_table(config_path = 'example/config.xlsx', 
              report_row = 2, 
              slide_row = 2, 
-             reload_config = T, 
+             reload_config = TRUE, 
              reload_data = FALSE)

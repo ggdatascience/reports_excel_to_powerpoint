@@ -39,15 +39,19 @@ graph_style <- function(graph,
 # Functie aanmaken om grafiekkleuren te bepalen
 graph_color <- function(values, colors = color_palette, variant) {
   
-  if(variant == "grouping1")
+  if (variant == "grouping1")
     
     colors[1:length(unique(values$grouping1))] %>% set_names(unique(values$grouping1))
   
-  else if(variant == 'grouping2')
+  else if (variant == "grouping1_var")
+    
+    colors[1:length(unique(values$grouping1_var))] %>% set_names(unique(values$grouping1_var))
+  
+  else if (variant == 'grouping2')
     
     colors[1:length(unique(values$grouping2))] %>% set_names(unique(values$grouping2))
   
-  else if(variant == 'dim_name') 
+  else if (variant == 'dim_name') 
     
     colors[c(1,3,5,2,4,6)][1:length(unique(values$dim_name))] %>% set_names(unique(values$dim_name))
   

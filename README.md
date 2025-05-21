@@ -23,7 +23,7 @@ Met dit script maak je met behulp van een configuratie in Excel en een template 
 -   Aanpassingen
     -   `replace_text()` en `type_text_comparison()` aangepast zodat naast een relatief verschil ook met een absoluut verschil kan worden vergeleken met het type `type_text_comparison()`. Met behulp van het functieargument `mode` kan worden aangegeven of een absoluut verschil moet worden gebruikt `mode = "absolute"` of een relatief verschil `mode = "relative"`. De default instelling is een absoluut verschil en dit kan je aanpassen in `functions/type_text_comparison.R`. Voor aanpassingen aan het relatieve percentage, het absolute percentage en een threshold moet je wijzigingen aanbrengen in de `replace_text()` functie in `functions/utils.R`
     -   `type_barchart()` en `select_barchart_variant()` aangepast zodat variant 12 anders wordt weergegeven. Kleuren zijn hierbij gebaseerd op de groeperingen, als er meerdere groeperingen bij grouping1 zijn opgegeven.
-    -   `graph_color()` in `functions/layout.R` aangepast zodat deze variant 12 van de staafgrafiek kan geneneren.
+    -   `graph_color()` in `functions/layout.R` aangepast zodat deze variant 12 van de staafgrafiek kan genereren
     -   Nieuwe kolom `legend_position` toegevoegd aan slideconfiguratie. Met behulp van deze kolom kun je voor staafgrafieken de positie van de legenda bepalen (of helemaal geen legenda tonen).
     -   Voorbeeldrapportages geupdate op basis van wijzigingen
     -   `data/fake_data.R` en `data/data.sav` aangepast

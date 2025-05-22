@@ -24,10 +24,10 @@ type_population_table <- function(data, report_params, slide_params, h = 4, w = 
     set_header_labels(dim_name = "") %>%
     border_remove() %>%
     fontsize(size = 10, part = "all") %>%
-    font(fontname = 'Calibri', part = "all") %>%
+    font(fontname = global_font, part = "all") %>%
     align(align = "center", part = "all") %>%
     bg(bg = color_palette[1], part = 'header') %>%
-    bg(bg = "lightgrey", part = 'body') %>% 
+    bg(bg = "white", part = 'body') %>% 
     color(color = "white", part = "header") %>%
     color(color = "black", part = "body") %>%
     border_outer(part="all", border = fp_border_default(width = 2, color = "white") ) %>%

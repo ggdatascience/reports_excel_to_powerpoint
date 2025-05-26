@@ -41,6 +41,7 @@ type_linechart <- function(data, report_params, slide_params) {
     } else {
     
     plot <- plot + geom_text_repel(aes(label = scales::percent(p, accuracy = 1)), size = 3, direction = "y", segment.size = 0.2, show.legend = FALSE)
+    plot <- rvg::dml(ggobj = plot, bg="transparent")
   
     }
   

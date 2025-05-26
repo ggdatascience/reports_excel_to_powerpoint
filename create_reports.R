@@ -9,7 +9,7 @@ rm(list = ls())
 # Deze libraries moeten eenmalig worden geinstalleerd met install.packages()
 # install.packages(c("extrafont", "haven", "labelled", "readxl", 
 #                    "tidyverse", "mschart", "officer", "flextable", 
-#                    "sjlabelled", "ggrepel","cbsodataR"))
+#                    "sjlabelled", "ggrepel","cbsodataR","rvg"))
 
 # Libraries laden
 library(extrafont) # Package om lettertypes te importeren
@@ -22,7 +22,8 @@ library(readxl) # Package om te werken met exceldocumenten
 library(sjlabelled) # Package voor functie replace_labels()
 library(tidyverse) # Meer info over tidyverse op: https://www.tidyverse.org/
 library(flextable) # Package om tabellen te maken
-library(cbsodataR) # nodig om CBS cijfers in te lezen
+library(cbsodataR) # Nodig om CBS cijfers in te lezen
+library(rvg) # Nodig om grafieken te bewerken in Powerpoint
 
 # Installeren en laden van lettertype
 # In het R-bestand layout.R wordt als standaard lettertype calibri gebruikt. 

@@ -18,6 +18,11 @@ Met dit script maak je met behulp van een configuratie in Excel en een template 
 
 ## Patch Notes
 
+### Versie 1.3.3
+
+-   Aanpassingen
+    -   In `create_reports()` en `type_linechart()` de functie RVG toegevoegd. Hiermee zijn grafieken te bewerken. Dit is een oplossing om te zorgen dat cijfers in de linechart te verplaatsen zijn. Ook de titels zijn hiermee aanpasbaar. 
+
 ### Versie 1.3.2
 
 -   Aanpassingen

@@ -9,7 +9,6 @@ type_population_table <- function(data, report_params, slide_params, h = 4, w = 
   bevolking_1jan_gm <- bevolking_1jan_gm %>%
     filter(Leeftijd > 11700) %>%
     filter(!Leeftijd == 10000) %>%
-    filter(!Leeftijd == 22300) %>%
     filter(!Leeftijd == 22000) %>%
     select(BevolkingOp1Januari_1) %>%
     mutate(BevolkingOp1Januari_1=sum(BevolkingOp1Januari_1)) %>%

@@ -6,30 +6,47 @@ Met dit script maak je met behulp van een configuratie in Excel en een template 
 
 > 1.  Klik rechtsboven op de pagina op de groene knop met de tekst `<> Code`. Kies dan onderaan in het drop down-menu de optie `Download ZIP`. Pak het ZIP bestand uit in de locatie van waaruit je wilt werken.
 > 2.  Open in de uitgepakte map het R Project file genaamd `reports.Rproj`. Open nu vanuit R of vanuit diezelfde map het hoofdscript `create_reports.R`
-> 3.  Volg de instructies die in het script `create_reports.R` staan om een voorbeeld rapportage op basis van nepdata uit te draaien. In deze voorbeeldrapportage zie je welke mogelijkheden het script heeft. Het template en de configuratie die voor dit voorbeeld worden gebruikt vind je terug in de map `example`. De nepdata staat inde map `data`.
+> 3.  Volg de instructies die in het script `create_reports.R` staan om een voorbeeld rapportage op basis van nepdata uit te draaien. In deze voorbeeldrapportage zie je welke mogelijkheden het script heeft. Het template en de configuratie die voor dit voorbeeld worden gebruikt vind je terug in de map `example`. De nepdata staat in de map `data`.
 
 ## Wat te doen bij problemen?
 
 > Loop je tegen problemen aan maak dan op deze GitHub pagina een Issue aan (om dit te kunnen doen moet je een GitHub account aanmaken). [Issues · ggdatascience/reports_excel_to_powerpoint](https://github.com/ggdatascience/reports_excel_to_powerpoint/issues)
 
-## Handleiding
-
-> De handleiding volgt nog.
-
 ## Patch Notes
+
+### Versie 1.3.5
+
+-   Toevoegingen
+    -   Configuratiebestand en template toegevoegd voor de OKO Gezondheidsmonitor 2025. Omdat de syntaxen nog niet definief zijn ontbreken er nog bij een aantal regels in de Excelconfiguratie indicatornamen. De cellen waarover het gaat zijn roodgekleurd.
+
+-   Nieuwe functies
+    -   `type_barchart_stacked` toegevoegd waarmee gestapelde staafgrafieken kunnen worden gemaakt
+    -   `type_barchart_stacked_combi` toegevoegd waarmee gestapelde staafgrafieken kunnen worden gemaakt voor meerdere variabelen in een figuur
+-   Aanpassingen
+    -   notities in Excelconfiguratie met uitleg per kolom omgezet naar opmerkingen ten behoeve van de leesbaarheid
+    -   color_palette kolom toegevoegd aan Excel configuratie waarmee je handmatig de kleuren van een grafiek kan instellen. Deze kolom is optioneel en als deze kolom leeg blijft dan worden de standaardkleuren gebruikt uit `layout.R`
+    -   x_ticklabel_position klom toegevoegd aan Excel configuratie waarmee je handmatig de positie van de ticklabels op de x-as kan veranderen. Zie de opmerking in de kolom voor de mogelijkheden
+    -   `type_barchart()` aangepast zodat voor die type ook gebruikgemaakt kan worden van de nieuwe kolommen (x_ticklabel_position en color_palette) in de Excelconfiguratie
+
+### Versie 1.3.4
+
+-   Aanpassingen
+    -   `create_ppt()` aangepast zodat een opgeven prefix in de rapportconfiguratie wordt gebruikt voor de bestandsnaam van de rapportage.
+    -   Voorbeeld configuratie aangepast zodat een prefix voor de bestandsnaam kan worden opgegeven
+    -   `graph_style()` en `type_barchart()` aangepast zodat tick labels niet worden getoond als er maar een label is
 
 ### Versie 1.3.3
 
 -   Aanpassingen
-    -   In `create_reports()` en `type_linechart()` de functie RVG toegevoegd. Hiermee zijn grafieken te bewerken. Dit is een oplossing om te zorgen dat cijfers in de linechart te verplaatsen zijn. Ook de titels zijn hiermee aanpasbaar. 
+    -   In `create_reports()` en `type_linechart()` de functie RVG toegevoegd. Hiermee zijn grafieken te bewerken. Dit is een oplossing om te zorgen dat cijfers in de linechart te verplaatsen zijn. Ook de titels zijn hiermee aanpasbaar
 
 ### Versie 1.3.2
 
 -   Aanpassingen
     -   `replace_text()` en `type_text_comparison()` aangepast zodat naast een relatief verschil ook met een absoluut verschil kan worden vergeleken met het type `type_text_comparison()`. Met behulp van het functieargument `mode` kan worden aangegeven of een absoluut verschil moet worden gebruikt `mode = "absolute"` of een relatief verschil `mode = "relative"`. De default instelling is een absoluut verschil en dit kan je aanpassen in `functions/type_text_comparison.R`. Voor aanpassingen aan het relatieve percentage, het absolute percentage en een threshold moet je wijzigingen aanbrengen in de `replace_text()` functie in `functions/utils.R`
-    -   `type_barchart()` en `select_barchart_variant()` aangepast zodat variant 12 anders wordt weergegeven. Kleuren zijn hierbij gebaseerd op de groeperingen, als er meerdere groeperingen bij grouping1 zijn opgegeven.
+    -   `type_barchart()` en `select_barchart_variant()` aangepast zodat variant 12 anders wordt weergegeven. Kleuren zijn hierbij gebaseerd op de groeperingen, als er meerdere groeperingen bij grouping1 zijn opgegeven
     -   `graph_color()` in `functions/layout.R` aangepast zodat deze variant 12 van de staafgrafiek kan genereren
-    -   Nieuwe kolom `legend_position` toegevoegd aan slideconfiguratie. Met behulp van deze kolom kun je voor staafgrafieken de positie van de legenda bepalen (of helemaal geen legenda tonen).
+    -   Nieuwe kolom `legend_position` toegevoegd aan slideconfiguratie. Met behulp van deze kolom kun je voor staafgrafieken de positie van de legenda bepalen (of helemaal geen legenda tonen)
     -   Voorbeeldrapportages geupdate op basis van wijzigingen
     -   `data/fake_data.R` en `data/data.sav` aangepast
 

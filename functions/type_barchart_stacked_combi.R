@@ -1,8 +1,17 @@
-type_barchart_stacked <- function(data, report_params, slide_params) {
+type_barchart_stacked_combi <- function(data, report_params, slide_params) {
   
   values <- compute_values_set(data, report_params, slide_params) %>%
     set_axis_factor_levels(vars = c('dim_name', 'value_label'), 
-                           direction = slide_params$direction)
+                            direction = slide_params$direction) %>%
+    left_join(
+      slide_params %>%
+        as.data.frame() %>%
+        select(var, var_label = value_label) %>%
+        mutate(across(c(var, var_label), ~ .x %>% str_split(";\\s*"))) %>%
+        unnest(cols = everything()),
+      by = "var"
+    ) %>%
+    select(var_label, everything())
   
   colors <- if (is.na(slide_params$color_palette)) {
     color_palette[1:length(unique(values$value_label))] %>% 
@@ -16,7 +25,7 @@ type_barchart_stacked <- function(data, report_params, slide_params) {
   }
   
   values %>%
-    ms_barchart(x = if('grouping1' %in% names(values)) 'grouping1' else 'dim_name',
+    ms_barchart(x = ifelse(!is.na(slide_params$grouping1), 'grouping1','var_label'),
                 y = 'p',
                 group = 'value_label') %>%
     chart_data_fill(colors) %>%

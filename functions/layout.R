@@ -1,8 +1,8 @@
-# Kleurpalet bepalen dat wordt gebruikt voor alle figuren die worden aangemaakt in R
-color_palette <- c('#005C96', '#6FC7FF', '#E54800', '#FFB18E', '#FFE500', '#FFF6A3')
+# Kleurenpalet bepalen dat wordt gebruikt voor alle figuren die worden aangemaakt in R
+color_palette <- c('#4450C6', '#FABD15', '#FF6200', '#36B03F', '#E3032C', '#6EA6FF')
 
 # Lettertype bepalen
-global_font <- "Calibri"
+global_font <- "Century Gothic"
 
 # Grafiekinstellingen bepalen
 # Het standaardlettertype 'Calibri' kun je aanpassen achter het functieargument font.
@@ -13,6 +13,7 @@ graph_style <- function(graph,
                         datalabels = T, 
                         labelposition = 'outEnd', 
                         labelcolor = 'black', 
+                        ticklabelposition = "low",
                         ylimit = 1) {
   
   chart_theme <- mschart_theme(main_title = fp_text(font.size = 9, bold = TRUE, font.family = font, color = 'black'),
@@ -20,7 +21,7 @@ graph_style <- function(graph,
                                axis_title_y = fp_text(font.size = 9, font.family = font),
                                axis_text_x = fp_text(font.size = 8, font.family = font),
                                axis_text_y = fp_text(font.size = 9, font.family = font),
-                               legend_text = fp_text(font.size = 9, font.family = font),
+                               legend_text = fp_text(font.size = 8, font.family = font),
                                grid_major_line = fp_border(style = "none"),
                                axis_ticks_x =  fp_border(width = 1),
                                axis_ticks_y =  fp_border(width = 1),
@@ -29,7 +30,7 @@ graph_style <- function(graph,
   graph %>% set_theme(chart_theme) %>%
     chart_data_stroke('transparent') %>%
     chart_labels(title = graphtitle, xlab = NULL, ylab = NULL) %>%
-    chart_ax_x(major_tick_mark = 'none') %>%
+    chart_ax_x(major_tick_mark = 'none', tick_label_pos = ticklabelposition) %>%
     chart_ax_y(limit_min = 0, num_fmt = '0%', major_tick_mark = 'none', limit_max = ylimit) %>%
     chart_data_labels(show_val = datalabels, num_fmt = '0%', position = labelposition) %>%
     chart_labels_text(fp_text(font.size = 8, font.family = font, color = labelcolor))

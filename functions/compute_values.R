@@ -1,5 +1,5 @@
 # Functie die cijfers berekent voor een specifieke regel in de slideconfiguratie
-compute_values <- function(data, Nvar = 50, Ncel = 0, ...) {
+compute_values <- function(data, Nvar = 30, Ncel = 5, ...) {
   
   params <- data.frame(...)
   

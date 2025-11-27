@@ -1,5 +1,5 @@
 # Script om met behulp van Excel en PowerPoint rapportages aan te maken
-# Versie 1.3.3
+# Versie 1.3.5
 
 # 0. Voorbereiding --------------------------------------------------------
 
@@ -7,8 +7,8 @@
 rm(list = ls())
 
 # Deze libraries moeten eenmalig worden geinstalleerd met install.packages()
-# install.packages(c("extrafont", "haven", "labelled", "readxl", 
-#                    "tidyverse", "mschart", "officer", "flextable", 
+# install.packages(c("extrafont", "haven", "labelled", "readxl",
+#                    "tidyverse", "mschart", "officer", "flextable",
 #                    "sjlabelled", "ggrepel","cbsodataR","rvg"))
 
 # Libraries laden
@@ -29,7 +29,7 @@ library(rvg) # Nodig om grafieken te bewerken in Powerpoint
 # In het R-bestand layout.R wordt als standaard lettertype calibri gebruikt. 
 # Wil je een ander lettertype dan moet je deze eenmalig importeren.
 extrafont::font_import(paths = "C:/Windows/Fonts", 
-                       pattern = "calibri", 
+                       pattern = "Century Gothic", 
                        prompt = FALSE)
 
 # Lettertypes laden
@@ -45,6 +45,9 @@ list.files(path = 'functions',
            full.names = TRUE) %>%
   walk(source)
 
+
+# 1. Script uitvoeren -----------------------------------------------------
+
 # Configuratie Excel omzetten naar rapportages in Powerpoint
 # Geef de padnaam van je Excel configuratie op
 # Let op! Heb je excel_to_ppt() al een keer uitgevoerd dan hoeft het script niet 
@@ -55,9 +58,12 @@ list.files(path = 'functions',
 # zijn dan worden ze niet opnieuw ingeladen (tenzij ze nog niet in de Global 
 # Environment van R aanwezig zijn, bijvoorbeeld als je het script na het 
 # opstarten voor het eerst uitvoert)
-excel_to_ppt(config_path = 'example/config.xlsx', 
+excel_to_ppt(config_path = 'oko/config oko.xlsx', 
              reload_config = TRUE, 
-             reload_data = FALSE)
+             reload_data = TRUE)
+
+
+# 2. Foutmeldingen oplossen -----------------------------------------------
 
 # Loop je tegen errors aan? Met behulp van de create_table() functie kun je de 
 # onderliggende tabel voor elke regel berekenen. Geef de padnaam van je 
@@ -65,8 +71,9 @@ excel_to_ppt(config_path = 'example/config.xlsx',
 # je cijfers wilt berekenen en vul bij slide_row het rijnummer van de slide-
 # configuratie waarvoor je de onderliggende tabel wilt berekenen. In Excel staan
 # kolomnamen in rij 1 dus report_row en slide_row kunnen niet kleiner zijn dan 2.
-create_table(config_path = 'example/config.xlsx', 
+create_table(config_path = 'oko/config oko.xlsx', 
              report_row = 2, 
              slide_row = 2, 
              reload_config = TRUE, 
-             reload_data = FALSE)
+             reload_data = TRUE)
+

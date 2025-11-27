@@ -1,5 +1,5 @@
 # Functie om een Powerpoint rapportage te maken
-create_ppt <- function(config, data, prefix = 'Rapportage', ...) {
+create_ppt <- function(config, data, ...) {
   
   report_params <- list(...)
   template <- officer::read_pptx(report_params$template_path)
@@ -30,7 +30,13 @@ create_ppt <- function(config, data, prefix = 'Rapportage', ...) {
     }
   )
   
-  output_path <- paste0(prefix, ' ', report_params$report_name, '.pptx')
+  if (is.na(report_params$report_name_prefix)) {
+    prefix <- "Rapportage"
+  } else {
+    prefix <- report_params$report_name_prefix
+  }
+  
+  output_path <- paste0(prefix, " ", report_params$report_name, '.pptx')
   print(template, output_path)
   
   cat("\014")
@@ -38,12 +44,12 @@ create_ppt <- function(config, data, prefix = 'Rapportage', ...) {
   # Bouw de tekstversie van het rapportlog
   if (length(error_lines) > 0) {
     log_text <- paste(
-      paste0("Rapportnaam: ", report_params$report_name),
+      paste0(prefix, ": " ,report_params$report_name),
       paste(error_lines, collapse = "\n"),
       sep = "\n"
     )
   } else {
-    log_text <- paste0("Rapportnaam: ", report_params$report_name, "\n✅ Geen errors")
+    log_text <- paste0(prefix, ": " , report_params$report_name, "\n✅ Geen errors")
   }
   
   report_log[[report_params$report_name]] <<- log_text

@@ -20,13 +20,18 @@ Met dit script maak je met behulp van een configuratie in Excel en een template 
     -   Configuratiebestand en template toegevoegd voor de OKO Gezondheidsmonitor 2025. Omdat de syntaxen nog niet definief zijn ontbreken er nog bij een aantal regels in de Excelconfiguratie indicatornamen. De cellen waarover het gaat zijn roodgekleurd.
 
 -   Nieuwe functies
-    -   `type_barchart_stacked` toegevoegd waarmee gestapelde staafgrafieken kunnen worden gemaakt
-    -   `type_barchart_stacked_combi` toegevoegd waarmee gestapelde staafgrafieken kunnen worden gemaakt voor meerdere variabelen in een figuur
+    -   `type_barchart_stacked()` toegevoegd waarmee gestapelde staafgrafieken kunnen worden gemaakt
+    -   `type_barchart_stacked_combi()` toegevoegd waarmee gestapelde staafgrafieken kunnen worden gemaakt voor meerdere variabelen in een figuur
+    -   `type_table()` toegevoegd waarmee een responstabel kan worden gemaakt
 -   Aanpassingen
     -   notities in Excelconfiguratie met uitleg per kolom omgezet naar opmerkingen ten behoeve van de leesbaarheid
     -   color_palette kolom toegevoegd aan Excel configuratie waarmee je handmatig de kleuren van een grafiek kan instellen. Deze kolom is optioneel en als deze kolom leeg blijft dan worden de standaardkleuren gebruikt uit `layout.R`
     -   x_ticklabel_position klom toegevoegd aan Excel configuratie waarmee je handmatig de positie van de ticklabels op de x-as kan veranderen. Zie de opmerking in de kolom voor de mogelijkheden
     -   `type_barchart()` aangepast zodat voor die type ook gebruikgemaakt kan worden van de nieuwe kolommen (x_ticklabel_position en color_palette) in de Excelconfiguratie
+    -   `layout.R` aangepast met het kleurpalet voor OKO en het default lettertype 'Century Gothic'
+    -   `graph_style()` aangepast zodat ticklabelpositie voor de x-as kan worden aangepast in de Excelconfiguratie
+    -   `create_ppt()` aangepast zodat een prefix kan worden gegeven aan de bestandsnaam van elk rapport
+    -   `compute_values()` aangepast zodat grote N (Nvar) gelijk is aan 30 en kleine N (Ncel) gelijk is aan 5
 
 ### Versie 1.3.4
 

@@ -52,5 +52,6 @@ create_ppt <- function(config, data, ...) {
     log_text <- paste0(prefix, ": " , report_params$report_name, "\n✅ Geen errors")
   }
   
-  report_log[[report_params$report_name]] <<- log_text
+  report_log[[paste(report_params$report_name_prefix, report_params$report_name)]] <<- log_text
+  
 }

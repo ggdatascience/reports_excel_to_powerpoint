@@ -14,10 +14,19 @@ Met dit script maak je met behulp van een configuratie in Excel en een template 
 
 ## Patch Notes
 
+### Versie 1.3.6
+
+-   Aanpassingen
+    -   `compute_values()` aangepast zodat de categorie 'Ander leerjaar' standaard gefilterd wordt voor de indicator KLAS. *Let op! Dit is een tijdelijke aanpassing en vraagt om een permanente oplossing door bijvoorbeeld een nieuwe KLAS indicator aan te maken waarin 'Ander leerjaar' missing is of door deze categorie voor de indicator KLAS handmatig op missing te zetten in SPSS (8 = missing)*
+    -   `create_ppt()` aangepast zodat errors correct per rapport worden weergeven na uit aanmaken van rapportages
+    -   `type_barchart_stacked_combi()` aangepast zodat meerdere indicatoren op de x-as kunnen worden getoond. Hierdoor zijn op dit moment geen groeperingen mogelijk voor dit grafiektype
+    -   Configuratiebestand en template geupdate op basis van aanpassingen in SPSS syntaxen.
+    -   `template oko.pptx` verwijderd en vervangen door `template rapportage oko.pptx`
+
 ### Versie 1.3.5
 
 -   Toevoegingen
-    -   Configuratiebestand en template toegevoegd voor de OKO Gezondheidsmonitor 2025. Omdat de syntaxen nog niet definief zijn ontbreken er nog bij een aantal regels in de Excelconfiguratie indicatornamen. De cellen waarover het gaat zijn roodgekleurd.
+    -   Configuratiebestand en template toegevoegd voor de OKO Gezondheidsmonitor 2025. Omdat de syntaxen nog niet definief zijn ontbreken er nog bij een aantal regels in de Excelconfiguratie indicatornamen. De cellen waarover het gaat zijn roodgekleurd
 
 -   Nieuwe functies
     -   `type_barchart_stacked()` toegevoegd waarmee gestapelde staafgrafieken kunnen worden gemaakt

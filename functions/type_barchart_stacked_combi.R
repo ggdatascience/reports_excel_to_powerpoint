@@ -25,7 +25,7 @@ type_barchart_stacked_combi <- function(data, report_params, slide_params) {
   }
   
   values %>%
-    ms_barchart(x = ifelse(!is.na(slide_params$grouping1), 'grouping1','var_label'),
+    ms_barchart(x = 'var_label',
                 y = 'p',
                 group = 'value_label') %>%
     chart_data_fill(colors) %>%

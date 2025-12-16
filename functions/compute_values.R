@@ -4,6 +4,7 @@ compute_values <- function(data, Nvar = 30, Ncel = 5, ...) {
   params <- data.frame(...)
   
   data_filtered <- data %>%
+    filter(KLAS != 0) %>% # TIJDELIJKE OPLOSSING, MOET OPGELOST WORDEN IN DE DATA NIET IN HET SCRIPT
     filter(.[[params$dim_var]] %in% params$dim_val & .[[params$time_var]] %in% params$time_val) %>%
     select(all_of(setdiff(c(params$time_var, params$var, params$grouping1, params$grouping2, params$weight_var), NA)))
   

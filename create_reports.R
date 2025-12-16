@@ -1,5 +1,5 @@
 # Script om met behulp van Excel en PowerPoint rapportages aan te maken
-# Versie 1.3.5
+# Versie 1.3.6
 
 # 0. Voorbereiding --------------------------------------------------------
 
@@ -76,4 +76,3 @@ create_table(config_path = 'oko/config oko.xlsx',
              slide_row = 2, 
              reload_config = TRUE, 
              reload_data = TRUE)
-

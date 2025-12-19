@@ -2,7 +2,7 @@
 
 *Databestand openen.
 GET
-  FILE='C:\Users\sanderve\OneDrive - VRLN\PSchijf\Gezondheidsmonitor\Algemeen\Automatisering en R\0. Github\report_excel_to_powerpoint\oko\Data\OKO 2025_Proefbestand.sav'.
+  FILE='padnaam'.
 EXECUTE.
 DATASET NAME OKO2025 WINDOW=FRONT.
 
@@ -43,5 +43,5 @@ INSERT file='OKO 11 - Roken en of vapen (4 cat).sps'.
 INSERT file='OKO 12 - Overig druggebruik.sps'.
 
 *Eindbestand opslaan.
-SAVE OUTFILE='C:\Users\sanderve\OneDrive - VRLN\PSchijf\Gezondheidsmonitor\Algemeen\Automatisering en R\0. Github\report_excel_to_powerpoint\oko\Data\OKO2025.sav' 
+SAVE OUTFILE='padnaam' 
   /COMPRESSED.

@@ -7,7 +7,7 @@ EXECUTE.
 DATASET NAME OKO2025 WINDOW=FRONT.
 
 *Syntaxen uitvoeren.
-CD 'C:\Users\sanderve\OneDrive - VRLN\PSchijf\Gezondheidsmonitor\2025 OKO Gezondheidsmonitor\4. Analyse\Syntaxen\'.
+CD 'padnaam'.
 INSERT file='01 - Opleiding kind-1219-vragenlijst-kind [4].sps'.
 INSERT file='02 - Leeftijd-1219-vragenlijst-kind [5].sps'.
 INSERT file='03 - Gender-1219-vragenlijst-kind [2].sps'.

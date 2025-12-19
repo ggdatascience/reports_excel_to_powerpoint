@@ -29,6 +29,7 @@ INSERT file='23 - Sociale steun-12-19-jarigen [2.1].sps'.
 INSERT file='24 - Weerbaarheid-1219-vragenlijst-kind [4](2).sps'.
 INSERT file='26 - Social media gebruik-12-19-jarigen.sps'.
 INSERT file='27 - Gamen-1219-vragenlijst-kind [7].sps'.
+INSERT file='100 - Opschoonsyntax missings en extreme waarden GM OKO 2025.sps'.
 INSERT file='OKO 01 - Thuis.sps'.
 INSERT file='OKO 02 - Thuis na 22 uur.sps'.
 INSERT file='OKO 03 - Chillen met vrienden.sps'.

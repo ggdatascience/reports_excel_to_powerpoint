@@ -14,6 +14,19 @@ Met dit script maak je met behulp van een configuratie in Excel en een template 
 
 ## Patch Notes
 
+### Versie 1.3.7
+
+-   Aanpassingen
+    -   Rapportconfiguratie in `config oko.xlsx` aangepast. Indicatoren over alcohol aangepast van slokjes drinkers naar heel glas of meer
+        -   Heeft in de laatste 4 weken alcohol gedronken: LBAGK3S20 overal aangepast naar LBAGK3S13
+        -   Heeft in de laaste 4 weken binge gedronken: LBAGK3S15 overal aangepast naar LBAGK3S25
+        -   Is in de laatste 4 weken dronken geweest: LBAGK3S17 overal aangepast naar LBAGK3S27
+        -   Regel 24 Kolom E aangepast vanwege ontbrekende hoofdletter: `krijgt van andere volwassene` aangepast naar `Krijgt van andere volwassene`
+        -   Regel 28 en 29 Kolom E aangepast vanwege ontbrekende hoofdletter: `laatste` aangepast naar `Laatste`
+        -   Regel 38 Kolom E aangepast vanwege spelfout: `Docenten gaan goed met leerlingen o` aangepast naar `Docenten gaan goed met leerlingen om`
+        -   Kleuren van figuren over houding van ouders ten opzichte van alcohol, roken en vapen omgedraaid, zodat goedkeuren rood is in plaats van groen
+    -   `create_reports.R` aangepast omdat het niet nodig is om een het lettertype Century Gothic beschikbaar te maken in R. Dit is alleen nodig als gebruikmaakt van een functie waar figuren binnen R worden gemaakt (bijvoorbeeld met ggplot). Met office figuren vanuit het `mschart` package is dit niet nodig.
+
 ### Versie 1.3.6
 
 -   Aanpassingen
@@ -27,7 +40,6 @@ Met dit script maak je met behulp van een configuratie in Excel en een template 
 
 -   Toevoegingen
     -   Configuratiebestand en template toegevoegd voor de OKO Gezondheidsmonitor 2025. Omdat de syntaxen nog niet definief zijn ontbreken er nog bij een aantal regels in de Excelconfiguratie indicatornamen. De cellen waarover het gaat zijn roodgekleurd
-
 -   Nieuwe functies
     -   `type_barchart_stacked()` toegevoegd waarmee gestapelde staafgrafieken kunnen worden gemaakt
     -   `type_barchart_stacked_combi()` toegevoegd waarmee gestapelde staafgrafieken kunnen worden gemaakt voor meerdere variabelen in een figuur

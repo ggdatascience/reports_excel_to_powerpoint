@@ -1,5 +1,5 @@
 # Script om met behulp van Excel en PowerPoint rapportages aan te maken
-# Versie 1.3.6
+# Versie 1.3.7
 
 # 0. Voorbereiding --------------------------------------------------------
 
@@ -24,19 +24,6 @@ library(tidyverse) # Meer info over tidyverse op: https://www.tidyverse.org/
 library(flextable) # Package om tabellen te maken
 library(cbsodataR) # Nodig om CBS cijfers in te lezen
 library(rvg) # Nodig om grafieken te bewerken in Powerpoint
-
-# Installeren en laden van lettertype
-# In het R-bestand layout.R wordt als standaard lettertype calibri gebruikt. 
-# Wil je een ander lettertype dan moet je deze eenmalig importeren.
-extrafont::font_import(paths = "C:/Windows/Fonts", 
-                       pattern = "Century Gothic", 
-                       prompt = FALSE)
-
-# Lettertypes laden
-loadfonts(device = 'win')
-
-# Check welke lettertypes beschikbaar zijn in Rstudio
-windowsFonts()
 
 # Functies laden die nodig zijn om rapportages te maken
 # Alle functies vind je terug in de map 'functions'

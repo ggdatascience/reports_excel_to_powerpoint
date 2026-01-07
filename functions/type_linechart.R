@@ -7,7 +7,11 @@ type_linechart <- function(data, report_params, slide_params) {
   plot <- ggplot(values, aes(x = time_val, y = p, color = dim_name)) +
     geom_line() +
     geom_point() +
-    labs(title = slide_params$description,
+    labs(title = if (!is.na(slide_params$graph_title) && slide_params$graph_title == "none") {
+      NULL
+    } else {
+      slide_params$description
+    },
          x = NULL,
          y = NULL,
          color = NULL) +

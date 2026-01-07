@@ -30,7 +30,11 @@ type_barchart_stacked_combi <- function(data, report_params, slide_params) {
                 group = 'value_label') %>%
     chart_data_fill(colors) %>%
     set_chart_direction(slide_params$direction) %>%
-    graph_style(graphtitle = unique(values$description),
+    graph_style(graphtitle = if (!is.na(slide_params$graph_title) && slide_params$graph_title == "none") {
+      NULL
+    } else {
+      slide_params$description
+    },
                 legendposition = ifelse(is.na(slide_params$legend_position),
                                         'b',
                                         slide_params$legend_position),

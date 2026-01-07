@@ -1,4 +1,4 @@
-# PowerPoint rapportages vanuit Excel
+PowerPoint rapportages vanuit Excel
 
 Met dit script maak je met behulp van een configuratie in Excel en een template in PowerPoint geautomatiseerd Powerpoint rapportages aan.
 
@@ -7,12 +7,25 @@ Met dit script maak je met behulp van een configuratie in Excel en een template 
 > 1.  Klik rechtsboven op de pagina op de groene knop met de tekst `<> Code`. Kies dan onderaan in het drop down-menu de optie `Download ZIP`. Pak het ZIP bestand uit in de locatie van waaruit je wilt werken.
 > 2.  Open in de uitgepakte map het R Project file genaamd `reports.Rproj`. Open nu vanuit R of vanuit diezelfde map het hoofdscript `create_reports.R`
 > 3.  Volg de instructies die in het script `create_reports.R` staan om een voorbeeld rapportage op basis van nepdata uit te draaien. In deze voorbeeldrapportage zie je welke mogelijkheden het script heeft. Het template en de configuratie die voor dit voorbeeld worden gebruikt vind je terug in de map `example`. De nepdata staat in de map `data`.
+> 4.  Dubbelcheck altijd je output (eventueel steekproefsgewijs) met bijvoorbeeld SPSS output.
 
 ## Wat te doen bij problemen?
 
 > Loop je tegen problemen aan maak dan op deze GitHub pagina een Issue aan (om dit te kunnen doen moet je een GitHub account aanmaken). [Issues · ggdatascience/reports_excel_to_powerpoint](https://github.com/ggdatascience/reports_excel_to_powerpoint/issues)
 
 ## Patch Notes
+
+### Versie 1.3.8
+
+-   Toevoegingen
+    -   slideconfiguratie voor het figurenboek toegevoegd. *Let op! Deze moet nog worden gecontroleerd op fouten dus dubbelcheck ook hier de output (bijvoorbeeld door de uitkomsten te vergelijken met uitkomsten in SPSS)*
+    -   template voor het figurenboek toegevoegd `template figurenboek oko.pptx`. Titelpagina en inhoudsopgave zijn nog niet af, maar hiermee kunnen wel alle benodigde figuren worden uitgedraaid.
+-   Aanpassingen
+    -   `create_ppt()` aangepast zodat als de kolom `slide_name` bestaat in de slideconfiguratie sheets met behulp van `create_ppt()` worden toegevoegd aan de rapportage. Hiermee kan het figurenboek worden gemaakt op basis van een template zonder PowerPoint slides.
+    -   kolom `graph_title` toegevoegd aan slideconfiguratie waarmee kan worden aangegeven of een grafiektitel niet moet worden getoond (met de optie `none`). Als deze kolom leeg is wordt de grafiektitel standaard wel getoond. Deze wijziging is doorgevoerd in de functies: `type_barchart()`, `type_barchart_stacked`, `type_barchart_stacked_combi` en `type_linechart()`
+    -   `recode_labels()` in `utils.R` aangepast zodat spaties vóór en na het =-teken nu ook resulteren in correcte labels opgegeven in de slideconfiguratie
+-   Nieuwe functies
+    -   `add_slides_from_config()` toegevoegd aan `utils.R`, waarmee slides automatisch kunnen worden toegevoegd aan de PowerPoint rapportage met behulp van de kolom `slide_name` in de slideconfiguratie.
 
 ### Versie 1.3.7
 

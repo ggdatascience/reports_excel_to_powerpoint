@@ -4,6 +4,14 @@ create_ppt <- function(config, data, ...) {
   report_params <- list(...)
   template <- officer::read_pptx(report_params$template_path)
   
+  if('slide_name' %in% names(report_config[[report_params$slideconfig_sheetname]])) {
+    
+    template <- add_slides_from_config(
+      template,
+      report_config,
+      "configuratie figurenboek")
+  }
+  
   safe_create_content <- purrr::safely(create_content)
   
   if (!exists("report_log", envir = .GlobalEnv)) {

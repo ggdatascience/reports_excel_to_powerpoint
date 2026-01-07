@@ -84,7 +84,7 @@ recode_labels <- function(data, label_var, label_string) {
   labels <- str_split_1(label_string, ';\\s*')
   
   recode_vector <- setNames(as.numeric(str_extract(labels, "^[0-9]")),
-                            str_extract(labels, "(?<= = ).*"))
+                            str_extract(labels, "(?<=\\s?=\\s?).*"))
   
   suppressMessages({
     data %>%
@@ -177,4 +177,24 @@ replace_text <- function(string,
   # Return the string
   return(string)
   
+}
+
+
+# Functie om slides toe te voegen
+add_slides_from_config <- function(template, report_config, config_name) {
+  
+  slide_names <- report_config[[config_name]] %>%
+    select(slide_number, slide_name) %>%
+    distinct() %>%
+    pull(slide_name)
+  
+  reduce(
+    slide_names,
+    .init = template,
+    .f = ~ add_slide(
+      .x,
+      layout = .y,
+      master = "Rapportage"
+    )
+  )
 }

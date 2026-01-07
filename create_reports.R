@@ -1,5 +1,5 @@
 # Script om met behulp van Excel en PowerPoint rapportages aan te maken
-# Versie 1.3.7
+# Versie 1.3.8
 
 # 0. Voorbereiding --------------------------------------------------------
 
@@ -58,8 +58,8 @@ excel_to_ppt(config_path = 'oko/config oko.xlsx',
 # je cijfers wilt berekenen en vul bij slide_row het rijnummer van de slide-
 # configuratie waarvoor je de onderliggende tabel wilt berekenen. In Excel staan
 # kolomnamen in rij 1 dus report_row en slide_row kunnen niet kleiner zijn dan 2.
-create_table(config_path = 'oko/config oko.xlsx', 
+create_table(config_path = 'oko/config oko figurenboek.xlsx', 
              report_row = 2, 
-             slide_row = 2, 
+             slide_row = 6, 
              reload_config = TRUE, 
              reload_data = TRUE)

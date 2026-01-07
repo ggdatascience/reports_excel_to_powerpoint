@@ -22,7 +22,11 @@ type_barchart <- function(data, report_params, slide_params) {
                                 })) %>%
     set_chart_direction(slide_params$direction) %>%
     chart_settings(overlap = ifelse(variant$group == "grouping1_var", 100, 0)) %>%
-    graph_style(graphtitle = unique(values$description),
+    graph_style(graphtitle = if (!is.na(slide_params$graph_title) && slide_params$graph_title == "none") {
+      NULL
+    } else {
+      slide_params$description
+    },
                 legendposition = ifelse(is.na(slide_params$legend_position),
                                         "b",
                                         slide_params$legend_position),
@@ -32,3 +36,6 @@ type_barchart <- function(data, report_params, slide_params) {
                                 no = as.numeric(slide_params$ylimit)))
   
 }
+
+
+

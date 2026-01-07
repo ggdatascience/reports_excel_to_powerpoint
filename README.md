@@ -18,12 +18,13 @@ Met dit script maak je met behulp van een configuratie in Excel en een template 
 ### Versie 1.3.8
 
 -   Toevoegingen
-    -   slideconfiguratie voor het figurenboek toegevoegd. *Let op! Deze moet nog worden gecontroleerd op fouten dus dubbelcheck ook hier de output (bijvoorbeeld door de uitkomsten te vergelijken met uitkomsten in SPSS)*
+    -   slideconfiguratie voor het figurenboek toegevoegd. aan \`config oko.xlsx\`. *Let op! Deze moet nog worden gecontroleerd op fouten dus dubbelcheck ook hier de output (bijvoorbeeld door de uitkomsten te vergelijken met uitkomsten in SPSS)*
     -   template voor het figurenboek toegevoegd `template figurenboek oko.pptx`. Titelpagina en inhoudsopgave zijn nog niet af, maar hiermee kunnen wel alle benodigde figuren worden uitgedraaid.
 -   Aanpassingen
     -   `create_ppt()` aangepast zodat als de kolom `slide_name` bestaat in de slideconfiguratie sheets met behulp van `create_ppt()` worden toegevoegd aan de rapportage. Hiermee kan het figurenboek worden gemaakt op basis van een template zonder PowerPoint slides.
     -   kolom `graph_title` toegevoegd aan slideconfiguratie waarmee kan worden aangegeven of een grafiektitel niet moet worden getoond (met de optie `none`). Als deze kolom leeg is wordt de grafiektitel standaard wel getoond. Deze wijziging is doorgevoerd in de functies: `type_barchart()`, `type_barchart_stacked`, `type_barchart_stacked_combi` en `type_linechart()`
     -   `recode_labels()` in `utils.R` aangepast zodat spaties vóór en na het =-teken nu ook resulteren in correcte labels opgegeven in de slideconfiguratie
+    -   kleine aanpassing in tekst op dia 4 van \`template rapportage oko.pptx\`
 -   Nieuwe functies
     -   `add_slides_from_config()` toegevoegd aan `utils.R`, waarmee slides automatisch kunnen worden toegevoegd aan de PowerPoint rapportage met behulp van de kolom `slide_name` in de slideconfiguratie.
 

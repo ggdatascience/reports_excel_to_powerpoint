@@ -5,6 +5,7 @@
 *** Standaard vastgesteld op 21 juli 2025
 *** Contactpersoon: Anne Meerdink / ameerdink@ggdghor.nl	.
 ******************************************************************************************************************************************
+***Aanpassing januari 2026: Als voorloper pestvraag 1 = nooit is, dan wordt dit 0 in de vervolgvragen i.p.v. 8 niet van toepassing.
 
 ***Aanpassing 2026 ten opzichte van 2023: de vraagstelling maakt geen direct onderscheid meer tussen online en fysiek pesten omdat dit in de praktijk in elkaar overloopt
 
@@ -71,8 +72,8 @@ EXECUTE .
 IF missing (SBRLK302) SBRLA303= 9 .
 EXECUTE .
 
-* Als de voorlopervraag SBRLK302 met 'nee' is beantwoord, dan wordt de vervolgvraag op 'nvt' (waarde 8) gezet .
-IF (SBRLK302 = 1) SBRLA303 = 8 .
+* Als de voorlopervraag SBRLK302 met 'nee' is beantwoord, dan wordt de vervolgvraag op 'nee' (waarde 0) gezet .
+IF (SBRLK302 = 1) SBRLA303 = 0 .
 EXECUTE .
 
 * Op basis van de voorlopervraag SBRLK302 de vervolgvraag SBRLK304 opschonen .
@@ -84,8 +85,8 @@ EXECUTE .
 IF missing (SBRLK302) SBRLA304= 9 .
 EXECUTE .
 
-* Als de voorlopervraag SBRLK302 met 'nee' is beantwoord, dan wordt de vervolgvraag op 'nvt' (waarde 8) gezet .
-IF (SBRLK302 = 1) SBRLA304 = 8 .
+* Als de voorlopervraag SBRLK302 met 'nee' is beantwoord, dan wordt de vervolgvraag op 'nee' (waarde 0) gezet .
+IF (SBRLK302 = 1) SBRLA304 = 0 .
 EXECUTE .
 
 * Op basis van de voorlopervraag SBRLK302 de vervolgvraag SBRLK305 opschonen .
@@ -97,8 +98,8 @@ EXECUTE .
 IF missing (SBRLK302) SBRLA305= 9 .
 EXECUTE .
 
-* Als de voorlopervraag SBRLK302 met 'nee' is beantwoord, dan wordt de vervolgvraag op 'nvt' (waarde 8) gezet .
-IF (SBRLK302 = 1) SBRLA305 = 8 .
+* Als de voorlopervraag SBRLK302 met 'nee' is beantwoord, dan wordt de vervolgvraag op 'nee' (waarde 0) gezet .
+IF (SBRLK302 = 1) SBRLA305 = 0 .
 EXECUTE .
 
 * Op basis van de voorlopervraag SBRLK302 de vervolgvraag SBRLK306 opschonen .
@@ -110,8 +111,8 @@ EXECUTE .
 IF missing (SBRLA306) SBRLA306 = 9 .
 EXECUTE .
 
-* Als de voorlopervraag SBRLK302 met 'nee' is beantwoord, dan wordt de vervolgvraag op 'nvt' (waarde 8) gezet .
-IF (SBRLK302 = 1) SBRLA306 = 8 .
+* Als de voorlopervraag SBRLK302 met 'nee' is beantwoord, dan wordt de vervolgvraag op 'nee' (waarde 0) gezet .
+IF (SBRLK302 = 1) SBRLA306 = 0 .
 EXECUTE .
 
 * Op basis van de voorlopervraag SBRLK302 de vervolgvraag SBRLK307 opschonen .
@@ -123,8 +124,8 @@ EXECUTE .
 IF missing (SBRLK302) SBRLA307= 9 .
 EXECUTE .
 
-* Als de voorlopervraag SBRLK302 met 'nee' is beantwoord, dan wordt de vervolgvraag op 'nvt' (waarde 8) gezet .
-IF (SBRLK302 = 1) SBRLA307 = 8 .
+* Als de voorlopervraag SBRLK302 met 'nee' is beantwoord, dan wordt de vervolgvraag op 'nee' (waarde 0) gezet .
+IF (SBRLK302 = 1) SBRLA307 = 0 .
 EXECUTE .
 
 *** STAP 2: INDICATOREN AANMAKEN ***

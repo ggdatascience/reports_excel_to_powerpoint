@@ -205,8 +205,9 @@ MISSING VALUES
   SBSGK3S6 (9) .
 EXECUTE .
 
-*Aanmaken indicator: % dat zichzelf verslaafd vindt aan sociale media.
-RECODE SBSGA315 (0=0) (1,2=1) (else=copy) INTO SBSGK3S12.
+*Aanmaken indicator: % dat zichzelf verslaafd vindt aan sociale media.   r 208 en verder in de syntax!!!!.
+
+RECODE SBSGA315 (0,1=1) (2=0) (else=copy) INTO SBSGK3S12.
 EXECUTE.
 
 VARIABLE LABELS 
@@ -226,7 +227,7 @@ MISSING VALUES
 EXECUTE .
 
 *Aanmaken indicator: % dat zichzelf heel erg verslaafd vindt aan sociale media.
-RECODE SBSGA315 (0,1=0) (2=1) (else=copy) INTO SBSGK3S13.
+RECODE SBSGA315 (0=1) (1,2=0) (else=copy) INTO SBSGK3S13.
 EXECUTE.
 
 VARIABLE LABELS 
@@ -244,6 +245,7 @@ EXECUTE .
 MISSING VALUES
   SBSGK3S13 (9) .
 EXECUTE .
+
 
 *** EINDE VAN DE SYNTAX ***
 
